@@ -1,0 +1,21 @@
+// kind: 'live' opens the real site; kind: 'own' opens a page we designed (key in PAGES, see ProjectShowcase.jsx)
+export const PROJECTS = [
+  { id: 1, title: 'Rose Trust', tag: 'NGO website', url: 'https://www.rosetrust2006.in', grad: 'from-rose-100 to-amber-100',
+    desc: 'Website for a rural NGO in Dindigul District, Tamil Nadu, with programme pages, village-impact numbers, gallery and donation options.',
+    points: ['Programme pages', 'Impact counters', 'Gallery', 'Donation tiers'] },
+  { id: 2, title: 'EDISAN Trust', tag: 'Charitable trust website', url: 'https://www.edisantrust.in', grad: 'from-amber-100 to-orange-100',
+    desc: 'Website for a trust working with children, women and marginalised communities in Tiruppur District, listing its nine programs.',
+    points: ['Programs', 'Photo gallery', 'Mission and vision', 'Donate section'] },
+  { id: 3, title: 'CADD CITY', tag: 'Training academy website', url: 'https://caddcity.com', grad: 'from-stone-200 to-amber-100',
+    desc: 'Website for a technical training academy in Kumbakonam, organised by course stream with an enquiry flow and a four-step learning path.',
+    points: ['Course categories', 'Enquiry form', 'Learning path', 'Map and contact'] },
+  { id: 4, title: 'Tour in India', tag: 'Travel website', url: 'https://tourpackageinindia.com', grad: 'from-emerald-100 to-lime-50',
+    desc: 'Travel site for Tamil Nadu and Kerala tour packages, with destination pages, package search, hero video and WhatsApp enquiry.',
+    points: ['Package search', 'Destination pages', 'Hero video', 'WhatsApp enquiry'] },
+  { id: 5, title: 'Ember', tag: 'Concept design', page: 'ember', grad: 'from-orange-100 to-red-100',
+    desc: 'Our own concept for a wood-fire restaurant: tabbed menu and a table-reservation flow you can actually try.',
+    points: ['Tabbed menu', 'Guest counter', 'Time slots', 'Booking confirmation'] },
+  { id: 6, title: 'Fieldnote', tag: 'Concept design', page: 'fieldnote', grad: 'from-emerald-100 to-zinc-100',
+    desc: 'Our own concept for a sales-insight product for small shops: a chart with date ranges and a monthly/yearly pricing toggle.',
+    points: ['Range switcher', 'Hoverable chart', 'Pricing toggle'] },
+];

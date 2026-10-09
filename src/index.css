@@ -1,0 +1,48 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html, body {
+  scroll-behavior: smooth;
+  margin: 0;
+  background-color: #F5F4F0;
+  overflow-x: hidden;
+}
+
+/* Default arrow hidden everywhere (modal included); custom cursor takes over */
+*, *::before, *::after { cursor: none !important; }
+
+@keyframes auroraSlow { 0%,100%{transform:translate3d(0,0,0) scale(1)} 50%{transform:translate3d(80px,60px,0) scale(1.15)} }
+@keyframes auroraReverse { 0%,100%{transform:translate3d(0,0,0) scale(1.1)} 50%{transform:translate3d(-70px,-50px,0) scale(.95)} }
+@keyframes auroraDrift { 0%,100%{transform:translate3d(0,0,0) scale(.95)} 50%{transform:translate3d(60px,-70px,0) scale(1.12)} }
+.animate-aurora-slow { animation: auroraSlow 16s ease-in-out infinite; }
+.animate-aurora-reverse { animation: auroraReverse 20s ease-in-out infinite; }
+.animate-aurora-drift { animation: auroraDrift 18s ease-in-out infinite; }
+
+/* New: float + modal entrance */
+@keyframes floatY { 50% { transform: translateY(-14px); } }
+.animate-float { animation: floatY 5s ease-in-out infinite; }
+@keyframes popIn { from { opacity: 0; transform: translateY(28px) scale(.95); } }
+.pop-in { animation: popIn .5s cubic-bezier(.2,.8,.2,1); }
+
+/* New: cursor ring states (set from Cursor.jsx via data-s) */
+.cur-ring { width:38px; height:38px; border:1.5px solid rgba(180,83,9,.75); border-radius:9999px; display:grid; place-items:center;
+  transition: width .35s cubic-bezier(.2,.8,.2,1), height .35s cubic-bezier(.2,.8,.2,1), background .3s; }
+.cur-ring span { font:700 11px ui-monospace,monospace; color:#92400e; opacity:0; transition:opacity .2s; }
+.cur-ring[data-s="link"] { width:58px; height:58px; background:rgba(245,158,11,.12); }
+.cur-ring[data-s="card"] { width:96px; height:96px; background:rgba(245,158,11,.16); }
+.cur-ring[data-s="card"] span { opacity:1; }
+
+@media (prefers-reduced-motion: reduce) { * { animation: none !important; transition: none !important; } }
+
+/* Animated grid for the living background */
+@keyframes gridMove { to { background-position: 48px 48px; } }
+.animate-grid { animation: gridMove 14s linear infinite; }
+
+/* Click ripple */
+@keyframes ripple { to { transform: scale(5); opacity: 0; } }
+.cur-ripple { position: fixed; width: 16px; height: 16px; margin: -8px; border-radius: 9999px; border: 2px solid rgba(217,119,6,.8); pointer-events: none; z-index: 99; animation: ripple .6s ease-out forwards; }
+
+/* Hide custom cursor while pointer is inside a framed website (no frozen circle) */
+.cur-root { transition: opacity .2s; }
+.over-frame .cur-root { opacity: 0; }
