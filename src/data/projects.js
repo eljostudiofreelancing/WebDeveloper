@@ -12,7 +12,7 @@ export const PROJECTS = [
   { id: 4, title: 'Tour in India', cat: 'Travel', pin: true, tag: 'Travel website', url: 'https://tourpackageinindia.com', grad: 'from-emerald-100 to-lime-50',
     desc: 'Travel site for Tamil Nadu and Kerala tour packages, with destination pages, package search, hero video and WhatsApp enquiry.',
     points: ['Package search', 'Destination pages', 'Hero video', 'WhatsApp enquiry'] },
-  { id: 6, title: 'Wolfberry Travel', cat: 'Travel', tag: 'Travel website', url: 'https://wolfberry.jswet.in', grad: 'from-lime-100 to-amber-100',
+  { id: 6, title: 'Wolfberry Travel', cat: 'Travel', tag: 'Travel website', url: 'https://www.wolfberry.travel', grad: 'from-lime-100 to-amber-100',
     desc: 'Website for Wolfberry Travel. Open it to explore the full site.',
     points: ['Travel brand', 'Live site'] },
 ];
