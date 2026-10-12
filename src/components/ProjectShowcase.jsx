@@ -20,7 +20,7 @@ function Preview({ p }) {
       <div className="absolute left-0 top-0 w-[1280px] h-[800px] origin-top-left overflow-hidden bg-white pointer-events-none" style={{ transform: `scale(${s})` }}>
         <iframe src={p.url} title={p.title} loading="lazy" tabIndex={-1} sandbox={SB} className="w-full h-full border-0" />
       </div>
-      <span className="absolute top-3 left-3 px-3 py-1 rounded-md bg-white/95 text-[10px] font-mono font-bold uppercase tracking-wider text-zinc-900 shadow-sm">
+      <span className="absolute top-3 left-3 px-3 py-1 bg-white/95 text-[10px] font-mono font-bold uppercase tracking-wider text-zinc-900 shadow-sm">
         Live website
       </span>
       <span className="pointer-events-none absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity"
@@ -41,7 +41,7 @@ function Card({ p, onOpen }) {
   };
   return (
     <button ref={ref} data-card onPointerMove={move} onPointerLeave={() => (ref.current.style.transform = '')} onClick={() => onOpen(p)}
-      className="w-full h-full group relative text-left rounded-3xl bg-white border border-amber-900/10 hover:border-amber-500/70 overflow-hidden flex flex-col shadow-sm hover:shadow-[0_30px_70px_-20px_rgba(180,83,9,0.35)] transition-[transform,box-shadow,border-color] duration-300 ease-out will-change-transform">
+      className="w-full h-full group relative text-left bg-white border border-amber-900/10 hover:border-amber-500/70 overflow-hidden flex flex-col shadow-sm hover:shadow-[0_30px_70px_-20px_rgba(180,83,9,0.35)] transition-[transform,box-shadow,border-color] duration-300 ease-out will-change-transform">
       <Preview p={p} />
       <div className="p-6 flex-1 flex flex-col justify-between gap-4 bg-white/80">
         <div>
@@ -52,7 +52,7 @@ function Card({ p, onOpen }) {
           <p className="text-xs text-zinc-600 mt-2 line-clamp-3 leading-relaxed">{p.desc}</p>
         </div>
         <div className="flex flex-wrap gap-1.5 pt-4 border-t border-zinc-100">
-          {p.points.map((s) => <span key={s} className="text-[10px] font-mono px-2 py-0.5 rounded bg-zinc-100 text-zinc-700 font-semibold">{s}</span>)}
+          {p.points.map((s) => <span key={s} className="text-[10px] font-mono px-2 py-0.5 bg-zinc-100 text-zinc-700 font-semibold">{s}</span>)}
         </div>
       </div>
     </button>
@@ -78,21 +78,21 @@ function Viewer({ p, pos, onClose, onNav }) {
   }, [onClose, onNav]);
   return (
     <div onClick={onClose} className="fixed inset-0 z-[60] overscroll-contain flex items-center justify-center p-3 sm:p-6 bg-zinc-900/60 backdrop-blur-md">
-      <div onClick={(e) => e.stopPropagation()} className="pop-in w-full max-w-6xl h-[92vh] bg-[#FBFBFA] rounded-3xl border border-zinc-300 shadow-2xl flex flex-col overflow-hidden">
+      <div onClick={(e) => e.stopPropagation()} className="pop-in w-full max-w-6xl h-[92vh] bg-[#FBFBFA] border border-zinc-300 shadow-2xl flex flex-col overflow-hidden">
         <div className="px-4 py-3 bg-zinc-100 border-b border-zinc-200 flex items-center gap-3">
           <button onClick={onClose} aria-label="Close" className="w-3.5 h-3.5 rounded-full bg-rose-500 hover:bg-rose-600" />
-          <div className="flex rounded-lg bg-white border border-zinc-200 p-0.5">
+          <div className="flex bg-white border border-zinc-200 p-0.5">
             {[[-1, ChevronLeft, 'Previous project'], [1, ChevronRight, 'Next project']].map(([d, I, l]) => (
-              <button key={d} onClick={() => onNav(d)} aria-label={l} className="p-1.5 rounded-md text-zinc-600 hover:bg-zinc-900 hover:text-amber-400 transition"><I className="w-4 h-4" /></button>
+              <button key={d} onClick={() => onNav(d)} aria-label={l} className="p-1.5 text-zinc-600 hover:bg-zinc-900 hover:text-amber-400 transition"><I className="w-4 h-4" /></button>
             ))}
           </div>
-          <div className="flex-1 truncate px-4 py-1 rounded-full bg-white border border-zinc-200 text-xs font-mono text-zinc-600">{p.url}</div>
+          <div className="flex-1 truncate px-4 py-1 bg-white border border-zinc-200 text-xs font-mono text-zinc-600">{p.url}</div>
           {p.url && (
-            <a href={p.url} target="_blank" rel="noreferrer" className="px-3 py-1.5 rounded-lg bg-zinc-950 hover:bg-amber-600 text-white text-xs font-mono font-bold flex items-center gap-1.5 transition-colors">
+            <a href={p.url} target="_blank" rel="noreferrer" className="px-3 py-1.5 bg-zinc-950 hover:bg-amber-600 text-white text-xs font-mono font-bold flex items-center gap-1.5 transition-colors">
               Open in new tab <ExternalLink className="w-3.5 h-3.5" />
             </a>
           )}
-          <button onClick={onClose} aria-label="Close" className="p-1 rounded-lg hover:bg-zinc-200 text-zinc-500"><X className="w-5 h-5" /></button>
+          <button onClick={onClose} aria-label="Close" className="p-1 hover:bg-zinc-200 text-zinc-500"><X className="w-5 h-5" /></button>
         </div>
         <div className="flex-1 overflow-auto overscroll-contain bg-zinc-200/60">
           <div className={`mx-auto bg-white transition-all duration-500 ${p.url ? 'h-full' : 'min-h-full'}`}>
@@ -123,7 +123,7 @@ export default function ProjectShowcase() {
       <div className="flex flex-wrap gap-2 mb-8">
         {CATS.map((c) => (
           <button key={c} onClick={() => setCat(c)}
-            className={`px-4 py-1.5 rounded-full text-xs font-mono font-bold transition-all ${cat === c ? 'bg-zinc-950 text-amber-400 shadow-md' : 'bg-white/80 border border-amber-900/10 text-zinc-700 hover:border-amber-400 hover:-translate-y-0.5'}`}>{c}</button>
+            className={`px-4 py-1.5 text-xs font-mono font-bold transition-all ${cat === c ? 'bg-zinc-950 text-amber-400 shadow-md' : 'bg-white/80 border border-amber-900/10 text-zinc-700 hover:border-amber-400 hover:-translate-y-0.5'}`}>{c}</button>
         ))}
       </div>
       <div key={cat} className="flex flex-wrap justify-center gap-8">
